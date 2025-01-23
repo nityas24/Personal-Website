@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-image: linear-gradient(#2a1177, #6d52f4, #04255a);
+  background-image: linear-gradient(#2a1177, #6d52f4, #04255a); 
 }
 
 code {
