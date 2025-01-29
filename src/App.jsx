@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as THREE from 'three';
 import './App.css';
-import Model from './modelview'; // Import the Model component
-import Typed from 'typed.js'; // Import Typed.js
+import Model from './modelview';
+import Typed from 'typed.js';
 
 const CameraControls = () => {
   const { camera, gl } = useThree();
@@ -18,7 +18,6 @@ const CameraControls = () => {
     controls.current.maxDistance = 15;
     controls.current.enableDamping = true;
     controls.current.dampingFactor = 0.05;
-
     controls.current.maxAzimuthAngle = Math.PI / 10;
     controls.current.minAzimuthAngle = -Math.PI / 10;
 
@@ -29,8 +28,10 @@ const CameraControls = () => {
 };
 
 function App() {
-  const typedElement = useRef(null); // Typed.js reference
-  const glowRef = useRef(null); // Reference for the glow effect
+  const typedElement = useRef(null);
+  const glowRef = useRef(null);
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupContent, setPopupContent] = useState('');
 
   useEffect(() => {
     const typed = new Typed(typedElement.current, {
@@ -59,15 +60,32 @@ function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Button click handler
-  const handleButtonClick = (buttonName) => {
-    alert(`You clicked: ${buttonName}`);
+  // Button click handler to open the popup
+  const handleButtonClick = (content) => {
+    setPopupContent(content);
+    setPopupVisible(true);
+  };
+
+  // Function to close the popup
+  const closePopup = () => {
+    setPopupVisible(false);
+    setPopupContent('');
   };
 
   return (
     <div className="App">
       {/* Background Glow Effect */}
       <div className="glow-effect" ref={glowRef}></div>
+
+      {/* Popup Box */}
+      {popupVisible && (
+        <div className="popup">
+          <div className="popup-content">
+            <span className="close-btn" onClick={closePopup}>&times;</span>
+            <p>{popupContent}</p>
+          </div>
+        </div>
+      )}
 
       {/* Header Section */}
       <header className="App-header share-tech-regular">
@@ -97,20 +115,22 @@ function App() {
 
       {/* Button Section */}
       <div className="button-container1">
-        <button onClick={() => handleButtonClick('About Me')}>About Me</button>
+        <button onClick={() => handleButtonClick('This is the About Me section.')}>About Me</button>
       </div>
 
       <div className="button-container2">
-       <button onClick={() => handleButtonClick('Projects')}>Experience</button>
-       </div>
+        <button onClick={() => handleButtonClick('Here is my experience section.')}>Experience</button>
+      </div>
 
-       <div className="button-container3">
-        <button onClick={() => handleButtonClick('Work Experience')}>Projects</button>
-        </div>
+      <div className="button-container3">
+        <button onClick={() => handleButtonClick('These are my projects!')}>Projects</button>
+      </div>
 
-        <div className="button-container4">
-        <button onClick={() => handleButtonClick('Button 4')}>Connect</button>
-        </div>
+      <div className="button-container4">
+        <button onClick={() => handleButtonClick('Let’s Connect! Find me on LinkedIn.')}>Connect</button>
+      </div>
+
+      
     </div>
   );
 }
