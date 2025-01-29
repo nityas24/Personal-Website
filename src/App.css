@@ -18,6 +18,10 @@
   position: relative;
   margin: 100;
   padding: 100;
+
+  overflow: visible;
+  position: static;
+
 }
 
 .App-header {
@@ -54,7 +58,7 @@ body {
   background-color: black;
   color: white;
   overflow: hidden;
-  position: relative;
+  position: static;
 }
 
 /* Subtle glow effect that follows the cursor */
@@ -289,4 +293,68 @@ h1 {
   background-color: #10071C; /* Change background color on hover */
   letter-spacing: 0.1em; /* Apply hover effect */
   opacity: 1; /* Optionally adjust opacity on hover */
+}
+/* Popup Box Styling */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
+  backdrop-filter: blur(15px); /* Blurred background */
+  -webkit-backdrop-filter: blur(15px); /* Safari support */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures popup is on top */
+  
+  
+
+}
+
+.popup-content {
+  position: relative; /* This is important */
+  background: #0C0918;
+  opacity: 0.8;
+  padding: 200px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  text-align: center;
+  border: 3px solid #271943;
+  border-radius: 30px;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: white;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+  backdrop-filter: blur(15px); /* Stronger blur */
+  -webkit-backdrop-filter: blur(15px); /* Safari support */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Ensures it appears above the main content */
+  pointer-events: auto; /* Ensure it catches clicks */
 }
