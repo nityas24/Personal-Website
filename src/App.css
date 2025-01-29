@@ -1,38 +1,292 @@
+/* Embed the Share Tech font */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+/* Import Roboto Mono font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+
+/* Apply the Share Tech font to specific elements */
+.share-tech-regular {
+  font-family: "Share Tech", sans-serif; /* Correct font name */
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Example styling for App */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  margin: 100;
+  padding: 100;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  position: absolute;
+  left: 50%; /* Adjust this value for horizontal positioning */
+  top: 30%;  /* Adjust this value for vertical positioning */
+  transform: translate(-175%, -20%); /* Ensures the header is centered at the coordinates */
+  z-index: 100;
+  padding: 30px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 2rem;
+  font-family: "Share Tech", sans-serif; /* Apply the correct font here */
   color: white;
+  white-space: nowrap; /* Prevent the heading from wrapping into multiple lines */
+  overflow: hidden; /* Prevent overflow if the text is too long */
+  text-align: left;
+  width: 420px;  /* Set a fixed width for the button */
+  height: 120px;  /* Set a fixed height for the button */
 }
 
-.App-link {
-  color: #61dafb;
+.Canvas-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0C0918; /* Dark background for better contrast */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* App.scss */
+
+body {
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle glow effect that follows the cursor */
+.glow-effect {
+  position: fixed;
+  width: 500px; /* Broader effect */
+  height: 500px;
+  background: radial-gradient(circle, rgba(111, 66, 193, 0.4), rgba(17, 17, 37, 0));
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(120px); /* Soft and diffused glow */
+  transition: transform 0.05s ease-out;
+}
+
+
+
+.auto-type {
+  border: none; /* Ensure no borders */
+  background: transparent; /* Remove any background */
+  padding: 0; /* Remove any padding */
+  margin: 0; /* Remove any margins */
+  outline: none; /* Remove any focus outline */
+  display: inline; /* Prevent block-level behavior */
+}
+
+h1 {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+.App-header {
+  position: absolute;
+  left: 109%;
+  top: 30%;
+  transform: translate(-175%, -20%);
+  z-index: 100;
+  padding: 30px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 2rem;
+  font-family: "Share Tech", sans-serif;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: left; /* Set to left for App-header */
+}
+
+/* Ensure text-align: left; in subheading-box */
+.subheading-box {
+  font-family: "Share Tech", sans-serif;
+  font-size: 1rem;
+  color: white;
+  margin-top: 5px;
+  padding: 5px 5px;
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+  border: none;  /* Removes any borders */
+  box-shadow: none;  /* Removes the shadow */
+  text-align: left;
+  white-space: nowrap;
+  width: fit-content;
+  position: relative;
+  left: 100px; /* Adjust this as needed */
+  
+
+  /* Remove any outlines */
+  outline: none;  /* Prevents outline when the element is focused */
+
+
+}
+
+.subheading-box:focus {
+  outline: none; /* Ensure the outline is not applied on focus */
+  border: none; /* No border even if focused */
+  box-shadow: none; /* Ensure no shadow on focus */
+}
+
+
+
+
+/* Make sure roboto-mono-font is defined correctly */
+.roboto-mono-font {
+  font-family: "Roboto Mono", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Styling for the buttons */
+.button-container1 {
+  position: absolute;
+  cursor: pointer;
+  border: 3px solid #2A1942;
+  border-radius: 100px;
+  top: 410px;
+  left: 62%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;  /* Space between buttons */
+  z-index: 10;
+
+}
+
+.button-container2 {
+  position: absolute;
+  top: 410px;
+  left: 77%;
+  border: 3px solid #242545;
+  border-radius: 100px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;  /* Space between buttons */
+  z-index: 10;
+}
+
+.button-container3 {
+  position: absolute;
+  top: 510px;
+  left: 62%;
+  border: 3px solid #281938;
+  border-radius: 100px;
+
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;  /* Space between buttons */
+  z-index: 10;
+  
+}
+
+.button-container4 {
+  position: absolute;
+  top: 510px;
+  left: 77%;
+  transform: translateX(-50%);
+  display: flex;
+  border: 3px solid #271943;
+  border-radius: 100px;
+
+  gap: 10px;  /* Space between buttons */
+  z-index: 10;
+}
+
+.button-container1 button {
+  background-color: #150925;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 200px;  /* Set a fixed width for the button */
+  height: 70px;  /* Set a fixed height for the button */
+  
+  opacity: 0.5; /* Initial opacity */
+  transition: opacity 0.3s ease; /* Smooth transition */
+ 
+} 
+
+.button-container2 button {
+  background-color: #0E0D25;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 200px;  /* Set a fixed width for the button */
+  height: 70px;  /* Set a fixed height for the button */
+
+  opacity: 0.5; /* Initial opacity */
+  transition: opacity 0.3s ease; /* Smooth transition */
+ 
+}
+
+.button-container3 button {
+  background-color: #130811;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 200px;  /* Set a fixed width for the button */
+  height: 70px;  /* Set a fixed height for the button */
+
+  opacity: 0.5; /* Initial opacity */
+  transition: opacity 0.3s ease; /* Smooth transition */
+ 
+
+}
+
+.button-container4 button {
+  background-color: #10071C;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 200px;  /* Set a fixed width for the button */
+  height: 70px;  /* Set a fixed height for the button */
+
+  opacity: 0.5; /* Initial opacity */
+  transition: opacity 0.3s ease; /* Smooth transition */
+ 
+}  
+
+.button-container1 button:hover {
+  background-color: #150925; /* Change background color on hover */
+  letter-spacing: 0.1em; /* Apply hover effect */
+  opacity: 1; /* Optionally adjust opacity on hover */
+}
+
+.button-container2 button:hover{
+  background-color: #0E0D25; /* Change background color on hover */
+  letter-spacing: 0.1em; /* Apply hover effect */
+  opacity: 1; /* Optionally adjust opacity on hover */
+}
+
+.button-container3 button:hover{
+  background-color: #130811; /* Change background color on hover */
+  letter-spacing: 0.1em; /* Apply hover effect */
+  opacity: 1; /* Optionally adjust opacity on hover */
+}
+
+.button-container4 button:hover{
+  background-color: #10071C; /* Change background color on hover */
+  letter-spacing: 0.1em; /* Apply hover effect */
+  opacity: 1; /* Optionally adjust opacity on hover */
 }
