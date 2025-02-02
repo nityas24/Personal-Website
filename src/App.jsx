@@ -5,6 +5,8 @@ import * as THREE from 'three';
 import './App.css';
 import Model from './modelview';
 import Typed from 'typed.js';
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 const CameraControls = () => {
   const { camera, gl } = useThree();
@@ -28,6 +30,22 @@ const CameraControls = () => {
 };
 
 function App() {
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+
+      setLoading(false)
+
+    }, 8000)
+
+  }, [])
+
+
+
+
   const typedElement = useRef(null);
   const glowRef = useRef(null);
   const [popupVisible, setPopupVisible] = useState(false);
@@ -74,6 +92,21 @@ function App() {
 
   return (
     <div className="App">
+
+      {
+        loading ?
+        <ClipLoader
+        color={color}
+        loading={loading}
+        cssOverride={override}
+        size={40}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+
+        : 
+      }
+
       {/* Background Glow Effect */}
       <div className="glow-effect" ref={glowRef}></div>
 
