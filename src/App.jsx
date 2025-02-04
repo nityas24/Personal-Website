@@ -93,19 +93,6 @@ function App() {
   return (
     <div className="App">
 
-      {
-        loading ?
-        <ClipLoader
-        color={color}
-        loading={loading}
-        cssOverride={override}
-        size={40}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
-
-        : 
-      }
 
       {/* Background Glow Effect */}
       <div className="glow-effect" ref={glowRef}></div>
@@ -148,8 +135,20 @@ function App() {
 
       {/* Button Section */}
       <div className="button-container1">
-        <button onClick={() => handleButtonClick('This is the About Me section.')}>About Me</button>
+    <button onClick={() => handleButtonClick(
+      <div>
+        <p style={{ textAlign: "left", listStylePosition: "inside", paddingLeft: "0", lineHeight:"1.5" }} >Hello everyone! My name is Nitya Sharma, and I am currently a first-year Computer Engineering student at the University of Waterloo. Some of my interests include:</p>
+        <ul style={{ textAlign: "left", listStylePosition: "inside", paddingLeft: "0", lineHeight:"2" }}>
+          <li> Frontend Development</li>
+          <li>Cloud Computing</li>
+          <li>Embedded Systems</li>
+          <li>Reading</li>
+        </ul>
       </div>
+    )}>
+      About Me
+    </button>
+  </div>
 
       <div className="button-container2">
         <button onClick={() => handleButtonClick('Here is my experience section.')}>Experience</button>
