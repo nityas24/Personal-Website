@@ -204,7 +204,8 @@ h1 {
 
 .button-container1 button {
   background-color: #150925;
-  color: white;
+  color: white !important;
+  font-family: "Roboto Mono", serif;
   font-size: 1.2rem;
   padding: 10px 20px;
   border: none;
@@ -214,7 +215,7 @@ h1 {
   width: 200px;  /* Set a fixed width for the button */
   height: 70px;  /* Set a fixed height for the button */
   
-  opacity: 0.5; /* Initial opacity */
+  /*opacity: 0.5; /* Initial opacity */
   transition: opacity 0.3s ease; /* Smooth transition */
   
  
@@ -222,7 +223,8 @@ h1 {
 
 .button-container2 button {
   background-color: #0E0D25;
-  color: white;
+  color: white !important;
+  font-family: "Roboto Mono", serif;
   font-size: 1.2rem;
   padding: 10px 20px;
   border: none;
@@ -232,7 +234,7 @@ h1 {
   width: 200px;  /* Set a fixed width for the button */
   height: 70px;  /* Set a fixed height for the button */
 
-  opacity: 0.5; /* Initial opacity */
+  /*opacity: 0.5; /* Initial opacity */
   transition: opacity 0.3s ease; /* Smooth transition */
  
 }
@@ -240,6 +242,7 @@ h1 {
 .button-container3 button {
   background-color: #130811;
   color: white;
+  font-family: "Roboto Mono", serif;
   font-size: 1.2rem;
   padding: 10px 20px;
   border: none;
@@ -249,16 +252,17 @@ h1 {
   width: 200px;  /* Set a fixed width for the button */
   height: 70px;  /* Set a fixed height for the button */
 
-  opacity: 0.5; /* Initial opacity */
+  /*opacity: 0.5; /* Initial opacity */
   transition: opacity 0.3s ease; /* Smooth transition */
  
 
 }
 
 .button-container4 button {
-  background-color: #10071C;
+  background-color: #130811;
   color: white;
   font-size: 1.2rem;
+  font-family: "Roboto Mono", serif;
   padding: 10px 20px;
   border: none;
   border-radius: 100px;
@@ -267,25 +271,30 @@ h1 {
   width: 200px;  /* Set a fixed width for the button */
   height: 70px;  /* Set a fixed height for the button */
 
-  opacity: 0.5; /* Initial opacity */
+  /*opacity: 0.5; /* Initial opacity */
   transition: opacity 0.3s ease; /* Smooth transition */
  
 }  
 
 .button-container1 button:hover {
   background-color: #150925; /* Change background color on hover */
+  color: white;
+  font-family: "Roboto Mono", serif;
+  font-size: 1.2rem;
   letter-spacing: 0.1em; /* Apply hover effect */
   opacity: 1; /* Optionally adjust opacity on hover */
 }
 
 .button-container2 button:hover{
   background-color: #0E0D25; /* Change background color on hover */
+  font-family: "Roboto Mono", serif;
   letter-spacing: 0.1em; /* Apply hover effect */
   opacity: 1; /* Optionally adjust opacity on hover */
 }
 
 .button-container3 button:hover{
-  background-color: #130811; /* Change background color on hover */
+  background-color: #20142e; /* Change background color on hover */
+  font-family: "Roboto Mono", serif;
   letter-spacing: 0.1em; /* Apply hover effect */
   opacity: 1; /* Optionally adjust opacity on hover */
 }
@@ -293,6 +302,7 @@ h1 {
 .button-container4 button:hover{
   background-color: #10071C; /* Change background color on hover */
   letter-spacing: 0.1em; /* Apply hover effect */
+  font-family: "Roboto Mono", serif;
   opacity: 1; /* Optionally adjust opacity on hover */
 }
 /* Popup Box Styling */
