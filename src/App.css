@@ -4,6 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 
+
+
 /* Apply the Share Tech font to specific elements */
 .share-tech-regular {
   font-family: "Share Tech", sans-serif; /* Correct font name */
@@ -154,7 +156,7 @@ h1 {
   cursor: pointer;
   border: 3px solid #2A1942;
   border-radius: 100px;
-  top: 410px;
+  top: 110px;
   left: 62%;
   transform: translateX(-50%);
   display: flex;
@@ -206,17 +208,17 @@ h1 {
   background-color: #150925;
   color: white !important;
   font-family: "Roboto Mono", serif;
-  font-size: 1.2rem;
+  font-size: 0.6rem;
   padding: 10px 20px;
   border: none;
   border-radius: 100px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 200px;  /* Set a fixed width for the button */
-  height: 70px;  /* Set a fixed height for the button */
+  width: 100px;  /* Set a fixed width for the button */
+  height: 35px;  /* Set a fixed height for the button */
   
   /*opacity: 0.5; /* Initial opacity */
-  transition: opacity 0.3s ease; /* Smooth transition */
+  transition: background-color 0.3s ease, opacity 0.3s ease, letter-spacing 0.5s ease; 
   
  
 } 
@@ -225,17 +227,17 @@ h1 {
   background-color: #0E0D25;
   color: white !important;
   font-family: "Roboto Mono", serif;
-  font-size: 1.2rem;
+  font-size: 0.6rem;
   padding: 10px 20px;
   border: none;
   border-radius: 100px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 200px;  /* Set a fixed width for the button */
-  height: 70px;  /* Set a fixed height for the button */
+  width: 100px;  /* Set a fixed width for the button */
+  height: 35px;  /* Set a fixed height for the button */
 
   /*opacity: 0.5; /* Initial opacity */
-  transition: opacity 0.3s ease; /* Smooth transition */
+  transition: background-color 0.3s ease, opacity 0.3s ease, letter-spacing 0.5s ease; 
  
 }
 
@@ -243,17 +245,17 @@ h1 {
   background-color: #130811;
   color: white;
   font-family: "Roboto Mono", serif;
-  font-size: 1.2rem;
+  font-size: 0.6rem;
   padding: 10px 20px;
   border: none;
   border-radius: 100px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 200px;  /* Set a fixed width for the button */
-  height: 70px;  /* Set a fixed height for the button */
+  width: 100px;  /* Set a fixed width for the button */
+  height: 35px;  /* Set a fixed height for the button */
 
   /*opacity: 0.5; /* Initial opacity */
-  transition: opacity 0.3s ease; /* Smooth transition */
+  transition: background-color 0.3s ease, opacity 0.3s ease, letter-spacing 0.5s ease; 
  
 
 }
@@ -261,26 +263,24 @@ h1 {
 .button-container4 button {
   background-color: #130811;
   color: white;
-  font-size: 1.2rem;
+  font-size: 0.6rem;
   font-family: "Roboto Mono", serif;
   padding: 10px 20px;
   border: none;
   border-radius: 100px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 200px;  /* Set a fixed width for the button */
-  height: 70px;  /* Set a fixed height for the button */
-
-  /*opacity: 0.5; /* Initial opacity */
-  transition: opacity 0.3s ease; /* Smooth transition */
- 
-}  
+  width: 100px; /* Set a fixed width for the button */
+  height: 35px; /* Set a fixed height for the button */
+  
+  /* Smooth transition for multiple properties */
+  transition: background-color 0.3s ease, opacity 0.3s ease, letter-spacing 0.5s ease; 
+}
 
 .button-container1 button:hover {
   background-color: #150925; /* Change background color on hover */
   color: white;
   font-family: "Roboto Mono", serif;
-  font-size: 1.2rem;
+  font-size: 0.6rem;
   letter-spacing: 0.1em; /* Apply hover effect */
   opacity: 1; /* Optionally adjust opacity on hover */
 }
@@ -299,7 +299,7 @@ h1 {
   opacity: 1; /* Optionally adjust opacity on hover */
 }
 
-.button-container4 button:hover{
+.button-container4 button:hover {
   background-color: #10071C; /* Change background color on hover */
   letter-spacing: 0.1em; /* Apply hover effect */
   font-family: "Roboto Mono", serif;
@@ -319,8 +319,6 @@ h1 {
   justify-content: center;
   align-items: center;
   z-index: 1000; /* Ensures popup is on top */
-  
-  
 
 }
 
@@ -335,6 +333,8 @@ h1 {
   text-align: center;
   border: 3px solid #271943;
   border-radius: 30px;
+
+  
 }
 
 /* Close Button */
@@ -398,10 +398,18 @@ li {
 
 li::before {
   content: "•"; /* Custom bullet */
-  color: #808080; /* Bullet color */
+  color: white; /* Bullet color */
   font-size: 14px; /* Bullet size */
   position: absolute;
   left: 0;
+}
+
+.popup-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;  /* Makes the image circular */
+  overflow: hidden; 
+ 
 }
 
 
