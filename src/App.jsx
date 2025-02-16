@@ -23,6 +23,8 @@ const CameraControls = () => {
     controls.current.maxAzimuthAngle = Math.PI / 10;
     controls.current.minAzimuthAngle = -Math.PI / 10;
 
+    controls.current.enableZoom = false;
+
     return () => controls.current.dispose();
   }, [camera, gl]);
 
@@ -34,17 +36,11 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     setTimeout(() => {
-
-      setLoading(false)
-
-    }, 8000)
-
-  }, [])
-
-
-
+      setLoading(false);
+    }, 8000);
+  }, []);
 
   const typedElement = useRef(null);
   const glowRef = useRef(null);
@@ -92,8 +88,6 @@ function App() {
 
   return (
     <div className="App">
-
-
       {/* Background Glow Effect */}
       <div className="glow-effect" ref={glowRef}></div>
 
@@ -102,7 +96,7 @@ function App() {
         <div className="popup">
           <div className="popup-content">
             <span className="close-btn" onClick={closePopup}>&times;</span>
-            <p>{popupContent}</p>
+            {popupContent}
           </div>
         </div>
       )}
@@ -111,6 +105,10 @@ function App() {
       <header className="App-header share-tech-regular">
         <h1><span ref={typedElement} className="auto-type"></span></h1>
         <p className="subheading roboto-mono-font">Welcome to my website.</p>
+        <p className="description">
+    I'm a Computer Engineering student with an in frontend development, 
+    cloud computing, and embedded systems. Explore my projects and experience below!
+  </p>
       </header>
 
       {/* Canvas Section */}
@@ -135,20 +133,23 @@ function App() {
 
       {/* Button Section */}
       <div className="button-container1">
-    <button onClick={() => handleButtonClick(
-      <div>
-        <p style={{ textAlign: "left", listStylePosition: "inside", paddingLeft: "0", lineHeight:"1.5" }} >Hello everyone! My name is Nitya Sharma, and I am currently a first-year Computer Engineering student at the University of Waterloo. Some of my interests include:</p>
-        <ul style={{ textAlign: "left", listStylePosition: "inside", paddingLeft: "0", lineHeight:"2" }}>
-          <li> Frontend Development</li>
-          <li>Cloud Computing</li>
-          <li>Embedded Systems</li>
-          <li>Reading</li>
-        </ul>
+        <button onClick={() => handleButtonClick(
+          <div>
+          <img src="/IMG_9462.jpg" alt="Popup Image" className="popup-image" />
+          <p style={{ textAlign: "left", listStylePosition: "inside", paddingLeft: "0", lineHeight: "1.5" }}>
+              Hello everyone! My name is Nitya Sharma, and I am currently a first-year Computer Engineering student at the University of Waterloo. Some of my interests include:
+            </p>
+            <ul style={{ textAlign: "left", listStylePosition: "inside", paddingLeft: "0", lineHeight: "2" }}>
+              <li>Frontend Development</li>
+              <li>Cloud Computing</li>
+              <li>Embedded Systems</li>
+              <li>Reading</li>
+            </ul>
+          </div>
+        )}>
+          About Me
+        </button>
       </div>
-    )}>
-      About Me
-    </button>
-  </div>
 
       <div className="button-container2">
         <button onClick={() => handleButtonClick('Here is my experience section.')}>Experience</button>
@@ -161,8 +162,6 @@ function App() {
       <div className="button-container4">
         <button onClick={() => handleButtonClick('Let’s Connect! Find me on LinkedIn.')}>Connect</button>
       </div>
-
-      
     </div>
   );
 }
