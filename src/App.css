@@ -29,7 +29,7 @@
 .App-header {
   position: absolute;
   left: 50%; /* Adjust this value for horizontal positioning */
-  top: 30%;  /* Adjust this value for vertical positioning */
+  top: 35%;  /* Adjust this value for vertical positioning */
   transform: translate(-175%, -20%); /* Ensures the header is centered at the coordinates */
   z-index: 100;
   padding: 30px 30px;
@@ -41,7 +41,7 @@
   white-space: nowrap; /* Prevent the heading from wrapping into multiple lines */
   overflow: hidden; /* Prevent overflow if the text is too long */
   text-align: left;
-  width: 420px;  /* Set a fixed width for the button */
+  width: 450px;  /* Set a fixed width for the button */
   height: 350px;  /* Set a fixed height for the button */
   border-style: none;
   box-shadow: none !important;
@@ -100,8 +100,8 @@ h1 {
 
 .App-header {
   position: absolute;
-  left: 109%;
-  top: 30%;
+  left: 112%;
+  top: 35%;
   transform: translate(-175%, -20%);
   z-index: 100;
   padding: 30px 30px;
@@ -155,170 +155,6 @@ h1 {
   font-style: normal;
 }
 
-/* Styling for the buttons */
-.button-container1 {
-  position: absolute;
-  cursor: pointer;
-  /*border: 3px solid #2A1942;*/
-  border-radius: 100px;
-  top: 40px;
-  left: 60%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;  /* Space between buttons */
-  z-index: 10;
-  
-
-}
-
-.button-container2 {
-  position: absolute;
-  top: 40px;
-  left: 70%;
-  /*border: 3px solid #2A1942;*/
-  border-radius: 100px;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;  /* Space between buttons */
-  z-index: 10;
-}
-
-.button-container3 {
-  position: absolute;
-  top: 40px;
-  left:80%;
-  /*border: 3px solid #2A1942;*/
-  border-radius: 100px;
-
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;  /* Space between buttons */
-  z-index: 10;
-  
-}
-
-.button-container4 {
-  position: absolute;
-  top: 40px;
-  left: 90%;
-  transform: translateX(-50%);
-  display: flex;
-  /*border: 3px solid #2A1942;*/
-  border-radius: 100px;
-
-  gap: 10px;  /* Space between buttons */
-  z-index: 10;
-
-}
-
-.button-container1 button {
-  background-color: transparent;
-  color: white !important;
-  font-family: "Roboto Mono", serif;
-  font-size: 1rem;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 100px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 150px;  /* Set a fixed width for the button */
-  height: 45px;  /* Set a fixed height for the button */
-  
-  
-  /*opacity: 0.5; /* Initial opacity */
-  transition: background-color 0.3s ease, opacity 0.3s ease, letter-spacing 0.5s ease; 
-  
- 
-} 
-
-.button-container2 button {
-  background-color: transparent;
-  color: white !important;
-  font-family: "Roboto Mono", serif;
-  font-size: 1rem;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 100px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 150px;  /* Set a fixed width for the button */
-  height: 45px;  /* Set a fixed height for the button */
-  
-
-  /*opacity: 0.5; /* Initial opacity */
-  transition: background-color 0.3s ease, opacity 0.3s ease, letter-spacing 0.5s ease; 
- 
-}
-
-.button-container3 button {
-  background-color: transparent;
-  color: white;
-  font-family: "Roboto Mono", serif;
-  font-size: 1rem;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 100px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 150px;  /* Set a fixed width for the button */
-  height: 45px;  /* Set a fixed height for the button */
-  
-
-  /*opacity: 0.5; /* Initial opacity */
-  transition: background-color 0.3s ease, opacity 0.3s ease, letter-spacing 0.5s ease; 
- 
-
-}
-
-.button-container4 button {
-  background-color: transparent;
-  color: white;
-  font-size: 1rem;
-  font-family: "Roboto Mono", serif;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 100px;
-  cursor: pointer;
-  width: 150px;  /* Set a fixed width for the button */
-  height: 45px;  /* Set a fixed height for the button */
-  
-  
-  /* Smooth transition for multiple properties */
-  transition: background-color 0.3s ease, opacity 0.3s ease, letter-spacing 0.5s ease; 
-}
-
-.button-container1 button:hover {
-  background-color: #150925; /* Change background color on hover */
-  color: white;
-  font-family: "Roboto Mono", serif;
-  font-size: 1rem;
-  letter-spacing: 0.1em; /* Apply hover effect */
-  opacity: 1; /* Optionally adjust opacity on hover */
-}
-
-.button-container2 button:hover{
-  background-color: #150925; /* Change background color on hover */
-  font-family: "Roboto Mono", serif;
-  font-size: 1rem;
-  letter-spacing: 0.1em; /* Apply hover effect */
-  opacity: 1; /* Optionally adjust opacity on hover */
-}
-
-.button-container3 button:hover{
-  background-color: #150925; /* Change background color on hover */
-  font-family: "Roboto Mono", serif;
-  font-size: 1rem;
-  letter-spacing: 0.1em; /* Apply hover effect */
-  opacity: 1; /* Optionally adjust opacity on hover */
-}
-
-.button-container4 button:hover {
-  background-color: #150925; /* Change background color on hover */
-  letter-spacing: 0.1em; /* Apply hover effect */
-  font-size: 1rem;
-  font-family: "Roboto Mono", serif;
-  opacity: 1; /* Optionally adjust opacity on hover */
-}
 /* Popup Box Styling */
 .popup {
   position: fixed;
@@ -427,14 +263,14 @@ li::before {
 }
 
 .description {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: "Roboto Mono", monospace;
   line-height: 2;
   margin-top: 10px;
   color: white; /* Adjust color as needed */
   overflow-wrap: break-word;
   text-align: left;
-  max-width: 150%; /* Adjust as needed */
+  max-width: 170%; /* Adjust as needed */
   white-space: normal;
   word-wrap: break-word;
 }
@@ -451,4 +287,112 @@ html, body {
 
 body {
   overflow-x: hidden; /* Disable horizontal scrolling */
+}
+
+/* Sticky Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(1px);
+  opacity: 1;
+}
+
+/* Style buttons inside the navbar */
+.navbar button {
+  background-color: transparent;
+  color: white;
+  font-family: "Roboto Mono", serif;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 150px;
+  height: 45px;
+  position: relative;  /* Needed for the positioning of the underline */
+
+  transition: background-color 0.3s ease, opacity 0.3s ease, letter-spacing 0.5s ease; 
+
+}
+
+/* Add underline on hover */
+.navbar button::after {
+  content: '';  /* Creates an empty content for the line */
+  position: absolute;
+  bottom: 0;  /* Position the line at the bottom of the button */
+  left: 0;
+  width: 0%;  /* Initially the line has no width */
+  transform: translateX(20%);  /* Adjust the position to ensure it stays centered */
+
+  height: 2px;  /* Adjust the height of the line */
+  background-color: white;  /* Line color */
+  transition: width 0.3s ease;  /* Animate the width of the line */
+}
+
+.navbar button:hover::after {
+  width: 70%;  /* Expand the width of the line to the full width of the button */
+  
+}
+
+/* Button hover effect */
+.navbar button:hover {
+  background-color: transparent;
+  letter-spacing: 0.1em;
+  font-size: 1rem;
+  font-family: "Roboto Mono", serif;
+  opacity: 1;
+}
+.projects-title {
+  font-family: "Share Tech", sans-serif;
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 10vh; /* Ensures it appears after scrolling */
+  margin-left: 25vh;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Slightly lower to create an animation effect */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.projects-title.visible {
+  opacity: 1;
+  transform: translateY(0); /* Move it into place smoothly */
+}
+
+
+.projects-container {
+  display: flex;
+  justify-content: center;  /* Centers the boxes */
+  gap: 50px; /* Space between boxes */
+  margin-top: -150px; /* Space between title and boxes */
+}
+
+.project-box {
+  width: 350px; /* Box width */
+  height: 350px; /* Box height */
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent effect */
+  color: white;
+  font-family: "Roboto Mono", monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 15px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover effect */
+.project-box:hover {
+  transform: translateY(-3px); /* Slight lift effect */
+  background-color: rgba(255, 255, 255, 0.2);
 }
