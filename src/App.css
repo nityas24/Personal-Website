@@ -42,7 +42,12 @@
   overflow: hidden; /* Prevent overflow if the text is too long */
   text-align: left;
   width: 420px;  /* Set a fixed width for the button */
-  height: 120px;  /* Set a fixed height for the button */
+  height: 350px;  /* Set a fixed height for the button */
+  border-style: none;
+  box-shadow: none !important;
+  border: none !important;
+
+
 }
 
 .Canvas-container {
@@ -154,22 +159,23 @@ h1 {
 .button-container1 {
   position: absolute;
   cursor: pointer;
-  border: 3px solid #2A1942;
+  /*border: 3px solid #2A1942;*/
   border-radius: 100px;
-  top: 110px;
-  left: 62%;
+  top: 40px;
+  left: 60%;
   transform: translateX(-50%);
   display: flex;
   gap: 10px;  /* Space between buttons */
   z-index: 10;
+  
 
 }
 
 .button-container2 {
   position: absolute;
-  top: 410px;
-  left: 77%;
-  border: 3px solid #242545;
+  top: 40px;
+  left: 70%;
+  /*border: 3px solid #2A1942;*/
   border-radius: 100px;
   transform: translateX(-50%);
   display: flex;
@@ -179,9 +185,9 @@ h1 {
 
 .button-container3 {
   position: absolute;
-  top: 510px;
-  left: 62%;
-  border: 3px solid #281938;
+  top: 40px;
+  left:80%;
+  /*border: 3px solid #2A1942;*/
   border-radius: 100px;
 
   transform: translateX(-50%);
@@ -193,29 +199,31 @@ h1 {
 
 .button-container4 {
   position: absolute;
-  top: 510px;
-  left: 77%;
+  top: 40px;
+  left: 90%;
   transform: translateX(-50%);
   display: flex;
-  border: 3px solid #271943;
+  /*border: 3px solid #2A1942;*/
   border-radius: 100px;
 
   gap: 10px;  /* Space between buttons */
   z-index: 10;
+
 }
 
 .button-container1 button {
-  background-color: #150925;
+  background-color: transparent;
   color: white !important;
   font-family: "Roboto Mono", serif;
-  font-size: 0.6rem;
+  font-size: 1rem;
   padding: 10px 20px;
   border: none;
   border-radius: 100px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 100px;  /* Set a fixed width for the button */
-  height: 35px;  /* Set a fixed height for the button */
+  width: 150px;  /* Set a fixed width for the button */
+  height: 45px;  /* Set a fixed height for the button */
+  
   
   /*opacity: 0.5; /* Initial opacity */
   transition: background-color 0.3s ease, opacity 0.3s ease, letter-spacing 0.5s ease; 
@@ -224,17 +232,18 @@ h1 {
 } 
 
 .button-container2 button {
-  background-color: #0E0D25;
+  background-color: transparent;
   color: white !important;
   font-family: "Roboto Mono", serif;
-  font-size: 0.6rem;
+  font-size: 1rem;
   padding: 10px 20px;
   border: none;
   border-radius: 100px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 100px;  /* Set a fixed width for the button */
-  height: 35px;  /* Set a fixed height for the button */
+  width: 150px;  /* Set a fixed width for the button */
+  height: 45px;  /* Set a fixed height for the button */
+  
 
   /*opacity: 0.5; /* Initial opacity */
   transition: background-color 0.3s ease, opacity 0.3s ease, letter-spacing 0.5s ease; 
@@ -242,17 +251,18 @@ h1 {
 }
 
 .button-container3 button {
-  background-color: #130811;
+  background-color: transparent;
   color: white;
   font-family: "Roboto Mono", serif;
-  font-size: 0.6rem;
+  font-size: 1rem;
   padding: 10px 20px;
   border: none;
   border-radius: 100px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 100px;  /* Set a fixed width for the button */
-  height: 35px;  /* Set a fixed height for the button */
+  width: 150px;  /* Set a fixed width for the button */
+  height: 45px;  /* Set a fixed height for the button */
+  
 
   /*opacity: 0.5; /* Initial opacity */
   transition: background-color 0.3s ease, opacity 0.3s ease, letter-spacing 0.5s ease; 
@@ -261,16 +271,17 @@ h1 {
 }
 
 .button-container4 button {
-  background-color: #130811;
+  background-color: transparent;
   color: white;
-  font-size: 0.6rem;
+  font-size: 1rem;
   font-family: "Roboto Mono", serif;
   padding: 10px 20px;
   border: none;
   border-radius: 100px;
   cursor: pointer;
-  width: 100px; /* Set a fixed width for the button */
-  height: 35px; /* Set a fixed height for the button */
+  width: 150px;  /* Set a fixed width for the button */
+  height: 45px;  /* Set a fixed height for the button */
+  
   
   /* Smooth transition for multiple properties */
   transition: background-color 0.3s ease, opacity 0.3s ease, letter-spacing 0.5s ease; 
@@ -280,28 +291,31 @@ h1 {
   background-color: #150925; /* Change background color on hover */
   color: white;
   font-family: "Roboto Mono", serif;
-  font-size: 0.6rem;
+  font-size: 1rem;
   letter-spacing: 0.1em; /* Apply hover effect */
   opacity: 1; /* Optionally adjust opacity on hover */
 }
 
 .button-container2 button:hover{
-  background-color: #0E0D25; /* Change background color on hover */
+  background-color: #150925; /* Change background color on hover */
   font-family: "Roboto Mono", serif;
+  font-size: 1rem;
   letter-spacing: 0.1em; /* Apply hover effect */
   opacity: 1; /* Optionally adjust opacity on hover */
 }
 
 .button-container3 button:hover{
-  background-color: #20142e; /* Change background color on hover */
+  background-color: #150925; /* Change background color on hover */
   font-family: "Roboto Mono", serif;
+  font-size: 1rem;
   letter-spacing: 0.1em; /* Apply hover effect */
   opacity: 1; /* Optionally adjust opacity on hover */
 }
 
 .button-container4 button:hover {
-  background-color: #10071C; /* Change background color on hover */
+  background-color: #150925; /* Change background color on hover */
   letter-spacing: 0.1em; /* Apply hover effect */
+  font-size: 1rem;
   font-family: "Roboto Mono", serif;
   opacity: 1; /* Optionally adjust opacity on hover */
 }
@@ -412,5 +426,29 @@ li::before {
  
 }
 
+.description {
+  font-size: 1.1rem;
+  font-family: "Roboto Mono", monospace;
+  line-height: 2;
+  margin-top: 10px;
+  color: white; /* Adjust color as needed */
+  overflow-wrap: break-word;
+  text-align: left;
+  max-width: 150%; /* Adjust as needed */
+  white-space: normal;
+  word-wrap: break-word;
+}
 
 
+html, body {
+  background-color:  #0C0918;;  /* Ensure consistent background color */
+  color: white;
+  margin: 0;
+  padding: 0;
+  height: 200%;  /* Full height */
+  overflow: auto;  /* Allow scrolling */
+}
+
+body {
+  overflow-x: hidden; /* Disable horizontal scrolling */
+}
