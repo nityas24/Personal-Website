@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import './App.css';
 import Model from './modelview';
 import Typed from 'typed.js';
-import ClipLoader from "react-spinners/ClipLoader";
+import { ScaleLoader } from "react-spinners"; // Import ScaleLoader
 
 const CameraControls = () => {
   const { camera, gl } = useThree();
@@ -30,33 +30,35 @@ const CameraControls = () => {
 };
 
 function App() {
-  const [loading, setLoading] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(true);  // Default to true, so loading screen shows initially
+  const [projectsVisible, setProjectsVisible] = useState(false);
+  const [experienceVisible, setExperienceVisible] = useState(false);
   const typedElement = useRef(null);
   const glowRef = useRef(null);
   const [popupVisible, setPopupVisible] = useState(false);
   const [popupContent, setPopupContent] = useState('');
 
   useEffect(() => {
-    setLoading(true);
     setTimeout(() => {
-      setLoading(false);
-    }, 8000);
+      setLoading(false);  // Simulate model loading completion
+    }, 8000); // 8 seconds or adjust to model loading time
   }, []);
 
   useEffect(() => {
-    const typed = new Typed(typedElement.current, {
-      strings: ["Hello, I'm Nitya."],
-      typeSpeed: 50,
-      backSpeed: 150,
-      loop: false,
-      showCursor: true,
-      cursorChar: "| ",
-      backDelay: 1000,
-    });
+    if (!loading) {  // Only start the typewriter after loading is done
+      const typed = new Typed(typedElement.current, {
+        strings: ["Hello, I'm Nitya."],
+        typeSpeed: 70,
+        backSpeed: 150,
+        loop: false,
+        showCursor: true,
+        cursorChar: "| ",
+        backDelay: 1000,
+      });
 
-    return () => typed.destroy();
-  }, []);
+      return () => typed.destroy();
+    }
+  }, [loading]);
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -77,7 +79,15 @@ function App() {
       if (projectsSection) {
         const scrollPosition = window.scrollY + window.innerHeight;
         if (scrollPosition > projectsSection.offsetTop + 100) {
-          setVisible(true);
+          setProjectsVisible(true);
+        }
+      }
+
+      const experienceSection = document.getElementById("experience-section");
+      if (experienceSection) {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        if (scrollPosition > experienceSection.offsetTop + 100) {
+          setExperienceVisible(true);
         }
       }
     };
@@ -86,13 +96,11 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Button click handler to open the popup
   const handleButtonClick = (content) => {
     setPopupContent(content);
     setPopupVisible(true);
   };
 
-  // Function to close the popup
   const closePopup = () => {
     setPopupVisible(false);
     setPopupContent('');
@@ -100,10 +108,8 @@ function App() {
 
   return (
     <div className="App">
-      {/* Background Glow Effect */}
       <div className="glow-effect" ref={glowRef}></div>
 
-      {/* Popup Box */}
       {popupVisible && (
         <div className="popup">
           <div className="popup-content">
@@ -113,17 +119,21 @@ function App() {
         </div>
       )}
 
-      {/* Header Section */}
-      <header className="App-header share-tech-regular">
-        <h1><span ref={typedElement} className="auto-type"></span></h1>
-        <p className="subheading roboto-mono-font">Welcome to my website.</p>
-        <p className="description">
-          I'm a Computer Engineering student at the University of Waterloo. I have an interest in frontend development, 
-          cloud computing, and embedded systems. Explore my projects and experience below!
-        </p>
-      </header>
+      {loading ? (  // Show ScaleLoader if loading is true
+        <div className="loading-screen">
+          <ScaleLoader color="#ffffff" loading={loading} size={1000} />  {/* Custom loader */}
+        </div>
+      ) : (
+        <header className="App-header share-tech-regular">
+          <h1><span ref={typedElement} className="auto-type"></span></h1>
+          <p className="subheading roboto-mono-font">Welcome to my website.</p>
+          <p className="description">
+            I'm a Computer Engineering student at the University of Waterloo. I have an interest in frontend development, 
+            cloud computing, and embedded systems. Explore my projects and experience below!
+          </p>
+        </header>
+      )}
 
-      {/* Canvas Section */}
       <div className="Canvas-container">
         <Canvas
           camera={{ position: [0, 5, 10], fov: 50 }}
@@ -144,25 +154,52 @@ function App() {
       </div>
 
       {/* Projects Section */}
-      <div id="projects-section" className={`projects-title ${visible ? "visible" : ""}`}>
-        Projects
+      <div id="projects-section" className={`projects-section ${projectsVisible ? "visible" : ""}`}>
+        <h2 className="projects-title">Projects</h2>
+        <div className="projects-container">
+          <div className="project-box">Project 1</div>
+          <div className="project-box">Project 2</div>
+          <div className="project-box">Project 3</div>
+          <div className="project-box">Project 4</div>
+          <div className="project-box">Project 5</div>
+          <div className="project-box">Project 6</div>
+        </div>
       </div>
-      {/* Projects Section */}
-<div id="projects-section" className={`projects-section ${visible ? "visible" : ""}`}>
-  <h2 className="projects-title">Projects</h2>
-  <div className="projects-container">
-    <div className="project-box">Project 1</div>
-    <div className="project-box">Project 2</div>
-    <div className="project-box">Project 3</div>
-  </div>
-</div>
 
+      {/*Experience Section */}
+      <div id="experience-section" className={`experience-title ${experienceVisible ? "visible" : ""}`}>
+        Experience
+        <div className="experience-container">
+          <div className="experience-box">Experience1</div>
+          <div className="experience-box">Experience2</div>
+        </div>
+      </div>
 
-      {/* Navigation Bar */}
       <nav className="navbar">
-        <button onClick={() => handleButtonClick('About Me Content')}>About Me</button>
-        <button onClick={() => handleButtonClick('Experience Content')}>Experience</button>
-        <button onClick={() => handleButtonClick('Projects Content')}>Projects</button>
+        <button onClick={() => {
+          const aboutSection = document.getElementById("about-section");
+          if (aboutSection) {
+            const offset = aboutSection.getBoundingClientRect().top + window.scrollY - 50;
+            window.scrollTo({ top: offset, behavior: "smooth" });
+          }
+        }}>About Me</button>
+
+        <button onClick={() => {
+          const projectsSection = document.getElementById("projects-section");
+          if (projectsSection) {
+            const offset = projectsSection.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: offset, behavior: "smooth" });
+          }
+        }}>Projects</button>
+
+        <button onClick={() => {
+          const experienceSection = document.getElementById("experience-section");
+          if (experienceSection) {
+            const offset = experienceSection.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: offset, behavior: "smooth" });
+          }
+        }}>Experience</button>
+
         <button onClick={() => handleButtonClick('Connect Content')}>Connect</button>
       </nav>
     </div>
