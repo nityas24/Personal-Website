@@ -7,7 +7,6 @@ import Model from './modelview';
 import Typed from 'typed.js';
 import ClipLoader from "react-spinners/ClipLoader";
 
-
 const CameraControls = () => {
   const { camera, gl } = useThree();
   const controls = useRef();
@@ -22,7 +21,6 @@ const CameraControls = () => {
     controls.current.dampingFactor = 0.05;
     controls.current.maxAzimuthAngle = Math.PI / 10;
     controls.current.minAzimuthAngle = -Math.PI / 10;
-
     controls.current.enableZoom = false;
 
     return () => controls.current.dispose();
@@ -32,8 +30,12 @@ const CameraControls = () => {
 };
 
 function App() {
-
   const [loading, setLoading] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const typedElement = useRef(null);
+  const glowRef = useRef(null);
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupContent, setPopupContent] = useState('');
 
   useEffect(() => {
     setLoading(true);
@@ -41,11 +43,6 @@ function App() {
       setLoading(false);
     }, 8000);
   }, []);
-
-  const typedElement = useRef(null);
-  const glowRef = useRef(null);
-  const [popupVisible, setPopupVisible] = useState(false);
-  const [popupContent, setPopupContent] = useState('');
 
   useEffect(() => {
     const typed = new Typed(typedElement.current, {
@@ -72,6 +69,21 @@ function App() {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const projectsSection = document.getElementById("projects-section");
+      if (projectsSection) {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        if (scrollPosition > projectsSection.offsetTop + 100) {
+          setVisible(true);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Button click handler to open the popup
@@ -106,9 +118,9 @@ function App() {
         <h1><span ref={typedElement} className="auto-type"></span></h1>
         <p className="subheading roboto-mono-font">Welcome to my website.</p>
         <p className="description">
-    I'm a Computer Engineering student with an in frontend development, 
-    cloud computing, and embedded systems. Explore my projects and experience below!
-  </p>
+          I'm a Computer Engineering student at the University of Waterloo. I have an interest in frontend development, 
+          cloud computing, and embedded systems. Explore my projects and experience below!
+        </p>
       </header>
 
       {/* Canvas Section */}
@@ -131,37 +143,28 @@ function App() {
         </Canvas>
       </div>
 
-      {/* Button Section */}
-      <div className="button-container1">
-        <button onClick={() => handleButtonClick(
-          <div>
-          <img src="/IMG_9462.jpg" alt="Popup Image" className="popup-image" />
-          <p style={{ textAlign: "left", listStylePosition: "inside", paddingLeft: "0", lineHeight: "1.5" }}>
-              Hello everyone! My name is Nitya Sharma, and I am currently a first-year Computer Engineering student at the University of Waterloo. Some of my interests include:
-            </p>
-            <ul style={{ textAlign: "left", listStylePosition: "inside", paddingLeft: "0", lineHeight: "2" }}>
-              <li>Frontend Development</li>
-              <li>Cloud Computing</li>
-              <li>Embedded Systems</li>
-              <li>Reading</li>
-            </ul>
-          </div>
-        )}>
-          About Me
-        </button>
+      {/* Projects Section */}
+      <div id="projects-section" className={`projects-title ${visible ? "visible" : ""}`}>
+        Projects
       </div>
+      {/* Projects Section */}
+<div id="projects-section" className={`projects-section ${visible ? "visible" : ""}`}>
+  <h2 className="projects-title">Projects</h2>
+  <div className="projects-container">
+    <div className="project-box">Project 1</div>
+    <div className="project-box">Project 2</div>
+    <div className="project-box">Project 3</div>
+  </div>
+</div>
 
-      <div className="button-container2">
-        <button onClick={() => handleButtonClick('Here is my experience section.')}>Experience</button>
-      </div>
 
-      <div className="button-container3">
-        <button onClick={() => handleButtonClick('These are my projects!')}>Projects</button>
-      </div>
-
-      <div className="button-container4">
-        <button onClick={() => handleButtonClick('Let’s Connect! Find me on LinkedIn.')}>Connect</button>
-      </div>
+      {/* Navigation Bar */}
+      <nav className="navbar">
+        <button onClick={() => handleButtonClick('About Me Content')}>About Me</button>
+        <button onClick={() => handleButtonClick('Experience Content')}>Experience</button>
+        <button onClick={() => handleButtonClick('Projects Content')}>Projects</button>
+        <button onClick={() => handleButtonClick('Connect Content')}>Connect</button>
+      </nav>
     </div>
   );
 }
