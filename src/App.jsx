@@ -90,6 +90,14 @@ function App() {
           setExperienceVisible(true);
         }
       }
+
+      const connectSection = document.getElementById("connect-section");
+      if (connectSection) {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        if (scrollPosition > connectSection.offsetTop + 100) {
+          setExperienceVisible(true);
+        }
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -157,21 +165,93 @@ function App() {
       <div id="projects-section" className={`projects-section ${projectsVisible ? "visible" : ""}`}>
         <h2 className="projects-title">Projects</h2>
         <div className="projects-container">
-          <div className="project-box">Project 1</div>
-          <div className="project-box">Project 2</div>
-          <div className="project-box">Project 3</div>
-          <div className="project-box">Project 4</div>
-          <div className="project-box">Project 5</div>
-          <div className="project-box">Project 6</div>
+          <div className="project-box">Sentiment Analysis</div>
+          <div className="project-box">Personal Portfolio</div>
+          <div className="project-box">Route Optimizer</div>
+          <div className="project-box">STM32 Project</div>
+          <div className="project-box">Garden Gaze</div>
+          <div className="project-box">Coming Soon!</div>
         </div>
       </div>
+{/* Experience Section */}
+<div id="experience-section" className={`experience-title ${experienceVisible ? "visible" : ""}`}>
+  Experience
+  <div className="experience-container">
+    {/* Microsoft WEA Experience */}
+    <div className="experience-box">
+  <img 
+    src="thingy(2).png" 
+    alt="UW Logo" 
+    className="experience-image" 
+    style={{ width: "100px", height: "auto", borderRadius: "10px", marginTop: "-50px" }} 
+  />
+  <div className="experience-text">
+    <h2 style={{ fontSize: "27px", fontWeight: "bold" }}>Microsoft WEA: Azure & Cloud</h2>
 
-      {/*Experience Section */}
-      <div id="experience-section" className={`experience-title ${experienceVisible ? "visible" : ""}`}>
-        Experience
-        <div className="experience-container">
-          <div className="experience-box">Experience1</div>
-          <div className="experience-box">Experience2</div>
+    <p className="subheading roboto-mono-font" style={{ fontSize: "15px", fontWeight: "normal" }}>
+      University of Waterloo
+    </p>
+    <p className="subheading roboto-mono-font" style={{ fontSize: "15px", fontWeight: "normal" }}>
+      Jan 2025 - Present
+    </p>
+  </div>
+
+
+<div className="experience-sub-text">
+    <ul className="subheading roboto-mono-font" style={{ fontSize: "15px", fontWeight: "normal", lineHeight: "2.5" }}>
+      <li>Collaborating with a team to develop a project and presentation for an employer, designing and implementing project pipeline using Microsoft AI and Azure tools</li>
+      <li>Achieved AI-900 and AZ-900 certifications, showcasing an understanding of cloud computing concepts with artificial intelligence principles</li>
+   </ul>
+</div>
+
+</div>
+
+
+
+ {/* Swim Experience */}
+ <div className="experience-box">
+  <img 
+    src="logo(1).png" 
+    alt="UW Logo" 
+    className="experience-image" 
+    style={{ width: "100px", height: "auto", borderRadius: "10px", marginTop: "-50px" }} 
+  />
+  <div className="experience-text">
+    <h2 style={{ fontSize: "27px", fontWeight: "bold" }}>Aquatics Instructor</h2>
+
+    <p className="subheading roboto-mono-font" style={{ fontSize: "15px", fontWeight: "normal" }}>
+      City of Brampton
+    </p>
+    <p className="subheading roboto-mono-font" style={{ fontSize: "15px", fontWeight: "normal" }}>
+      Sept 2024 - Jan 2025
+    </p>
+  </div>
+
+<div className="experience-sub-text">
+<ul className="subheading roboto-mono-font" style={{ fontSize: "15px", fontWeight: "normal", lineHeight: "2.5" }}>
+<li>Created lesson plans tailored to different skill levels and ages</li>
+      <li>Taught proper form while offering constructive feedback for improvement of students, 85% pass rate</li>
+   </ul>
+</div>
+
+</div>
+</div>
+</div>
+
+
+      {/*Connect Section */}
+      <div id="connect-section" className={`connect-title ${experienceVisible ? "visible" : ""}`}>
+        Connect with Me
+        <div className="connect-container">
+          <div className="connect-box" onClick={() => window.open('mailto:n53sharm@uwaterloo.ca', '_blank')}>
+          <i className="fas fa-envelope" style={{ fontSize: '20px', marginRight: '8px' }}></i> Email
+          </div>
+          <div className="connect-box" onClick={() => window.open('https://www.linkedin.com/in/nitya-sharma24/', '_blank')}>
+            <i className="fab fa-linkedin" style={{ fontSize: '20px', marginRight: '8px' }}></i> LinkedIn
+          </div>
+          <div className="connect-box" onClick={() => window.open('https://github.com/nityas24', '_blank')}>
+            <i className="fab fa-github" style={{ fontSize: '20px', marginRight: '8px' }}></i> GitHub
+          </div>
         </div>
       </div>
 
@@ -179,7 +259,7 @@ function App() {
         <button onClick={() => {
           const aboutSection = document.getElementById("about-section");
           if (aboutSection) {
-            const offset = aboutSection.getBoundingClientRect().top + window.scrollY - 50;
+            const offset = aboutSection.getBoundingClientRect().top + window.scrollY - 10000;
             window.scrollTo({ top: offset, behavior: "smooth" });
           }
         }}>About Me</button>
@@ -200,7 +280,13 @@ function App() {
           }
         }}>Experience</button>
 
-        <button onClick={() => handleButtonClick('Connect Content')}>Connect</button>
+        <button onClick={() => {
+          const connectSection = document.getElementById("connect-section");
+          if (connectSection) {
+            const offset = connectSection.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: offset, behavior: "smooth" });
+          }
+        }}>Connect</button>
       </nav>
     </div>
   );
