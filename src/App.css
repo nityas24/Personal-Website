@@ -249,7 +249,7 @@ li::before {
 .description {
   font-size: 1rem;
   font-family: "Roboto Mono", monospace;
-  line-height: 2;
+  line-height: 2.2;
   margin-top: 10px;
   color: white; /* Adjust color as needed */
   overflow-wrap: break-word;
@@ -265,7 +265,7 @@ html, body {
   color: white;
   margin: 0;
   padding: 0;
-  height: 225%;  /* Full height */
+  height: 220%;  /* Full height */
   overflow: auto;  /* Allow scrolling */
 }
 
@@ -429,7 +429,7 @@ body {
 }
 .experience-box {
   width: 1110px;
-  height: 400px;
+  height: 300px;
   font-family: "Roboto Mono", monospace;
   font-size: 20px;
   display: flex;
@@ -452,7 +452,7 @@ body {
   border-radius: 10px;
   margin-top: -50px; /* Remove if causing misalignment */
   margin-left: 60px;
-}
+} 
 
 .experience-text {
   max-width: 300px;
@@ -462,7 +462,6 @@ body {
   max-width: 500px;
 
 }
-
 
 /* Hover effect */
 .experience-box:hover {
@@ -552,5 +551,88 @@ body {
   border-color: rgb(65, 52, 91); /* Set border color */
   border-style: solid; /* Ensure border is visible */
 }
+
+.project-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  position: relative; /* Ensure it's positioned for hover interaction */
+}
+
+.project-image {
+  width: 370px; /* Fixed width */
+  height: 200px; /* Fixed height */
+  border-top-left-radius: 15px;  /* Round top-left corner */
+  border-top-right-radius: 15px; /* Round top-right corner */
+  border-color: white;
+  margin-bottom: 20px; /* Space between image and text */
+  object-fit: cover; /* Auto zoom to fill the box */
+  display: block;
+  position: relative; /* Enable positioning */
+  top: -64px; /* Move the image upwards */
+  filter: brightness(70%); /* Dim the image */
+  transition: filter 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Hover on project box to brighten the image */
+.project-box:hover .project-image {
+  filter: brightness(100%); /* Full brightness when hovered */
+}
+
+.project-text {
+  position: relative;
+  top: -60px; /* Move the text upwards */
+  text-align: left; /* Align text to the left */
+  width: 100%; /* Ensure the text block spans full width */
+  margin-left: 0; /* Remove negative margin */
+  padding-left: 10px; /* Add slight spacing */
+  font-weight: bold;
+}
+
+.project-description-text{
+  position: relative;
+  top: -50px; /* Move the text upwards */
+  text-align: left; /* Align text to the left */
+  width: 100%; /* Ensure the text block spans full width */
+  margin-left: 0; /* Remove negative margin */
+  padding-left: 10px; /* Add slight spacing */
+  font-size: 12px;
+}
+/* The Modal */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  z-index: 9999;
+}
+
+/* Modal Content (Popups of Project Buttons)*/
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
 
 
