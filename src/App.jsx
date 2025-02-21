@@ -13,6 +13,10 @@ const CameraControls = () => {
 
   useEffect(() => {
     controls.current = new OrbitControls(camera, gl.domElement);
+
+    controls.current.target.set(0, 0, 0); // x, y, z coordinates of the new pivot point
+
+
     controls.current.minPolarAngle = Math.PI / 3;
     controls.current.maxPolarAngle = Math.PI / 1.5;
     controls.current.minDistance = 5;
@@ -104,7 +108,7 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleButtonClick = (content) => {
+  const handleProjectClick = (content) => {
     setPopupContent(content);
     setPopupVisible(true);
   };
@@ -160,19 +164,51 @@ function App() {
           <Model />
         </Canvas>
       </div>
-
       {/* Projects Section */}
       <div id="projects-section" className={`projects-section ${projectsVisible ? "visible" : ""}`}>
         <h2 className="projects-title">Projects</h2>
         <div className="projects-container">
-          <div className="project-box">Sentiment Analysis</div>
-          <div className="project-box">Personal Portfolio</div>
-          <div className="project-box">Route Optimizer</div>
-          <div className="project-box">STM32 Project</div>
-          <div className="project-box">Garden Gaze</div>
-          <div className="project-box">Coming Soon!</div>
+          <div className="project-box" onClick={() => handleProjectClick('Sentiment Analysis details...')}>
+            <img src="Sentiment1.png" alt="Sentiment Analysis" className="project-image" />
+            <div className="project-text">Sentiment Analysis 📝</div>
+            <div className="project-description-text">Scikit-Learn ・ Streamlit ・ Python</div>
+
+          </div>
+          <div className="project-box" onClick={() => handleProjectClick('Personal Portfolio details...')}>
+            <img src="Portfolio.png" alt="Personal Portfolio" className="project-image" />
+            <div className="project-text">Personal Portfolio 🎨</div>
+            <div className="project-description-text">React・ Blender ・ Three.js ・ HTML/CSS </div>
+
+          </div>
+          <div className="project-box" onClick={() => handleProjectClick('Route Optimizer details...')}>
+            <img src="firstrespond.png" alt="Route Optimizer" className="project-image" />
+            <div className="project-text">Route Optimizer 📍</div>
+            <div className="project-description-text">Python・ BigQuery ・ Flask ・ Google Cloud </div>
+
+          </div>
+          <div className="project-box" onClick={() => handleProjectClick('STM32 Project details...')}>
+            <img src="STM.jpg" alt="STM32 Project" className="project-image" />
+            <div className="project-text">STM32 Project 💧</div>
+            <div className="project-description-text">STM32・ CubeIDE ・ Project Management </div>
+
+            
+          </div>
+          <div className="project-box" onClick={() => handleProjectClick('Garden Gaze details...')}>
+            <img src="garden.png" alt="Garden Gaze" className="project-image" />
+            <div className="project-text">Garden Gaze 🌱</div>
+            <div className="project-description-text">Streamlit・ Python ・ APIs ・ HTML/CSS  </div>
+        
+          </div>
+          <div className="project-box" onClick={() => handleProjectClick('Coming Soon! details...')}>
+            <img src="coming-soon-image.jpg" alt="Coming Soon" className="project-image" />
+            <div className="project-text"> Spotify Sentiment Playlist 🎵</div>
+          </div>
+          <div className="project-box" onClick={() => handleProjectClick('Garden Gaze details...')}>
+            <img src="coming-soon-image.png" alt="Coming Soon 2" className="project-image" />
+            <div className="project-text">Fraud Payment Detection 📊</div>
+          </div>
         </div>
-      </div>
+      </div> 
 {/* Experience Section */}
 <div id="experience-section" className={`experience-title ${experienceVisible ? "visible" : ""}`}>
   Experience
@@ -256,13 +292,11 @@ function App() {
       </div>
 
       <nav className="navbar">
-        <button onClick={() => {
-          const aboutSection = document.getElementById("about-section");
-          if (aboutSection) {
-            const offset = aboutSection.getBoundingClientRect().top + window.scrollY - 10000;
-            window.scrollTo({ top: offset, behavior: "smooth" });
-          }
-        }}>About Me</button>
+      <button onClick={() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}}>
+  About Me
+</button>
 
         <button onClick={() => {
           const projectsSection = document.getElementById("projects-section");
@@ -270,6 +304,7 @@ function App() {
             const offset = projectsSection.getBoundingClientRect().top + window.scrollY - 100;
             window.scrollTo({ top: offset, behavior: "smooth" });
           }
+       
         }}>Projects</button>
 
         <button onClick={() => {
