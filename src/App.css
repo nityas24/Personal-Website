@@ -24,6 +24,8 @@
   overflow: visible;
   position: static;
 
+  
+
 }
 
 .App-header {
@@ -64,9 +66,11 @@
 body {
   background-color: black;
   color: white;
-  overflow: hidden;
+  overflow-y: auto; /* Allow vertical scrolling */
   position: static;
+  min-height: 250vh; /* Ensure body extends down */
 }
+
 
 /* Subtle glow effect that follows the cursor */
 .glow-effect {
@@ -632,7 +636,3 @@ body {
   font-size: 30px;
   cursor: pointer;
 }
-
-
-
-
