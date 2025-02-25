@@ -148,6 +148,8 @@ function App() {
 
       <div className="Canvas-container">
         <Canvas
+          style={{ width: "100%", height: "100vh", overflow: "visible" }}
+
           camera={{ position: [0, 5, 10], fov: 50 }}
           gl={{
             antialias: true,
@@ -169,24 +171,32 @@ function App() {
         <h2 className="projects-title">Projects</h2>
         <div className="projects-container">
           <div className="project-box" onClick={() => handleProjectClick('Sentiment Analysis details...')}>
+
+
             <img src="Sentiment1.png" alt="Sentiment Analysis" className="project-image" />
             <div className="project-text">Sentiment Analysis 📝</div>
             <div className="project-description-text">Scikit-Learn ・ Streamlit ・ Python</div>
 
           </div>
-          <div className="project-box" onClick={() => handleProjectClick('Personal Portfolio details...')}>
+          <div className="project-box" onClick={() => handleProjectClick('Sentiment Analysis')}>
+
+
             <img src="Portfolio.png" alt="Personal Portfolio" className="project-image" />
             <div className="project-text">Personal Portfolio 🎨</div>
             <div className="project-description-text">React・ Blender ・ Three.js ・ HTML/CSS </div>
 
           </div>
           <div className="project-box" onClick={() => handleProjectClick('Route Optimizer details...')}>
+
+
             <img src="firstrespond.png" alt="Route Optimizer" className="project-image" />
             <div className="project-text">Route Optimizer 📍</div>
             <div className="project-description-text">Python・ BigQuery ・ Flask ・ Google Cloud </div>
 
           </div>
           <div className="project-box" onClick={() => handleProjectClick('STM32 Project details...')}>
+
+
             <img src="STM.jpg" alt="STM32 Project" className="project-image" />
             <div className="project-text">STM32 Project 💧</div>
             <div className="project-description-text">STM32・ CubeIDE ・ Project Management </div>
@@ -194,6 +204,8 @@ function App() {
             
           </div>
           <div className="project-box" onClick={() => handleProjectClick('Garden Gaze details...')}>
+
+
             <img src="garden.png" alt="Garden Gaze" className="project-image" />
             <div className="project-text">Garden Gaze 🌱</div>
             <div className="project-description-text">Streamlit・ Python ・ APIs ・ HTML/CSS  </div>
@@ -272,12 +284,18 @@ function App() {
 
 </div>
 </div>
-</div>
+</div> 
 
 
       {/*Connect Section */}
       <div id="connect-section" className={`connect-title ${experienceVisible ? "visible" : ""}`}>
         Connect with Me
+
+        <p className="subheading roboto-mono-font" style={{ fontSize: "16px", fontWeight: "normal", lineHeight: "2.5" }}>
+    Interested in working on a project together, or just want to say hi?  
+    Drop me an email or connect with me on LinkedIn!
+      </p>
+
         <div className="connect-container">
           <div className="connect-box" onClick={() => window.open('mailto:n53sharm@uwaterloo.ca', '_blank')}>
           <i className="fas fa-envelope" style={{ fontSize: '20px', marginRight: '8px' }}></i> Email
@@ -290,6 +308,15 @@ function App() {
           </div>
         </div>
       </div>
+
+
+{/* New Footer Section */}
+<div className="footer">
+
+  <p className="copyright">© 2025 Nitya Sharma. All rights reserved.</p>
+</div>
+
+
 
       <nav className="navbar">
       <button onClick={() => {
